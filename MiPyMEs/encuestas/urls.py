@@ -1,7 +1,10 @@
 from django.urls import path
-from .views import EncuestasListView, EncuestaDetailView
+from .views import EncuestaListView, EncuestaDetailView, EncuestaCreate, EncuestaUpdate, EncuestaDelete
 
-urlpatterns = [
-    path('', EncuestasListView.as_view(), name='encuestas'),
-    path('<int:pk>/<slug:encuesta_slug>/', EncuestaDetailView.as_view(), name='encuesta'),
-]
+encuestas_patterns = ([
+    path('', EncuestaListView.as_view(), name='encuestas'),
+    path('<int:pk>/<slug:slug>/', EncuestaDetailView.as_view(), name='encuesta'),
+    path('create/', EncuestaCreate.as_view(), name='create'),
+    path('update/<int:pk>/', EncuestaUpdate.as_view(), name='update'),
+    path('delete/<int:pk>/', EncuestaDelete.as_view(), name='delete')
+], 'encuestas')

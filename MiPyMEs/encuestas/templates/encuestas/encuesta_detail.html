@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}{{encuesta.name}}{% endblock %}
 {% block content %}
+{% include 'encuestas/includes/encuestas_menu.html' %}
 <main role="main">
   <div class="container">
     <div class="row mt-3">
@@ -10,7 +11,7 @@
         <div>
           {{encuesta.subtitle|safe}}
           {% if request.user.is_staff %}
-            <p><a href="#">Editar</a></p>
+            <p><a href="{% url 'encuestas:update' encuesta.id %}">Editar</a></p>
           {% endif %}
         </div>
       </div>
