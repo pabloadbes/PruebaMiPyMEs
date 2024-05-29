@@ -22,6 +22,14 @@ class EncuestaUpdate(UpdateView):
     form_class = EncuestaForm
     template_name_suffix = "_update_form"
 
+    # def get_success_url(self) -> str:
+    #     return reverse_lazy('encuestas:update', args=[self.object.id]) + '?ok'
+
+class EncuestaDataUpdate(UpdateView):
+    model = Encuesta
+    form_class = EncuestaForm
+    template_name_suffix = "_data_update_form"
+
     def get_success_url(self) -> str:
         return reverse_lazy('encuestas:update', args=[self.object.id]) + '?ok'
     

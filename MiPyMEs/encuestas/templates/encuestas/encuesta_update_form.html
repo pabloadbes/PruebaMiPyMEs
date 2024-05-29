@@ -8,23 +8,17 @@
     <div class="row mt-3 mb-5">
       <div class="col-md-9 mx-auto">
         <div>
-          
-          {% if 'ok' in request.GET %}
-            <p style="color:green;">
-              Página editada correctamente.
-              <a href="{% url 'encuestas:encuesta' encuesta.id encuesta.name|slugify %}">Haz click aquí para ver el resultado.</a>
-            </p>
-          {% endif %}
-            
-          <form action="" method="post">{% csrf_token %}
-            {{ form.as_p }}
-            <div class="text-center">
-              <input type="submit" class="btn btn-primary btn-block" value="Actualizar encuesta" />
-            </div>
-          </form>
+          <h1>{{ encuesta.name }}</h1>
+          <h3>{{ encuesta.subtitle }}</h3>
         </div>
       </div>
+      <div class="col-md-3 mx-auto">
+        <button class="btn btn-primary mb-1" onclick="window.location.href='https://www.google.com'">Nueva Sección</button>
+        <button class="btn btn-primary mb-1" onclick="window.location.href='https://www.google.com'">Nueva Pregunta</button>
+        <button class="btn btn-warning mb-1" onclick="window.location.href='{% url 'encuestas:update_data' encuesta.id %}'">Nombre Proyecto</button>
+      </div>
     </div>
+    <hr>
   </div>
 </main>
 {% endblock %}
